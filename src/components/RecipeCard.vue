@@ -66,7 +66,12 @@ export default {
       });
     },
     addToFav() {
-      if (!this.$store.getters.loggedInUser) return;
+      if (!this.$store.getters.loggedInUser) {
+        this.$store.dispatch("displayAddToFavError", {
+          errorType: "addToFavError",
+        })
+        return
+        }
       this.$store.dispatch("addToFavorites", {
         user: this.$store.getters.loggedInUser,
         recipeName: this.name,

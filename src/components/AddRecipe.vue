@@ -168,6 +168,10 @@ export default {
         favouriteOf: [],
         comments: [],
       };
+      if (this.newRecipe.author === "" || this.newRecipe.recipeName === "" || this.newRecipe.recipeDetails === "" || this.newRecipe.grindSize === "" || this.newRecipe.brewer === ""){
+        this.$store.dispatch("displayFormValidationError");
+        return
+      }
       this.addRecipe(this.newRecipe);
     },
     addRecipe(submittedRecipe) {

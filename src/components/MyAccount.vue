@@ -12,6 +12,8 @@
         v-model="accountPassword"
       />
       <base-button type="submit">Log In</base-button>
+      <h3>Don't have an account? Register one:</h3>
+      <router-link class="register" to="/register">Register</router-link>
       <p v-if="loginError">
         Your login and/or password is not correct. Maybe a typo? Or an identity
         theft? Try again
@@ -97,5 +99,19 @@ input {
 p {
   color: red;
   font-weight: bold;
+}
+a.register {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 1.85rem;
+  border: none;
+  border-radius: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #0f023b;
+  cursor: pointer;
 }
 </style>

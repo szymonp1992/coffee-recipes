@@ -55,6 +55,8 @@ export default {
       users: [{ login: "szymonp1992", password: "loleklol" }],
       loggedIn: false,
       loggedInUser: null,
+      addToFavError: false,
+      formValidationError: false,
     };
   },
   getters: {
@@ -70,7 +72,12 @@ export default {
     loggedInUser(state) {
       return state.loggedInUser;
     },
-
+    addToFavError(state) {
+      return state.addToFavError;
+    },
+    formValidationError(state) {
+      return state.formValidationError;
+    }
   },
   mutations: {
     addRecipe(state, payload) {
@@ -93,16 +100,31 @@ export default {
       const recipeIndex = state.recipes.findIndex(recipe => recipe.recipeName === payload.recipeName);
       const favouredByIndex = state.recipes[recipeIndex].favouriteOf.findIndex(user => user === payload.user);
       state.recipes[recipeIndex].favouriteOf.splice(favouredByIndex, 1);
+    },
+    displayAddToFavError(state) {
+      state.addToFavError = true;
+    },
+    closeAddToFavError(state) {
+      state.addToFavError = false;
+    },
+    displayFormValidationError(state) {
+      state.formValidationError = true;
+    },
+    closeFormValidationError(state) {
+      state.formValidationError = false;
+    },
+    addNewUser(state, payload){
+      state.users.push({login: payload.login, password: payload.password})
     }
   },
   actions: {
     addRecipe(context, payload) {
       context.commit("addRecipe", payload);
     },
-    logIn(context) {
+    logIn(context, payload) {
       context.commit("logIn");
     },
-    logOut(context) {
+    logOut(context, payload) {
       context.commit("logOut");
     },
     updateLoggedInUser(context, payload) {
@@ -112,7 +134,22 @@ export default {
       context.commit("addToFavorites", payload);
     },
     removeFromFavorites(context, payload) {
-      context.commit("removeFromFavorites", payload)
+      context.commit("removeFromFavorites", payload);
+    },
+    displayAddToFavError(context) {
+      context.commit("displayAddToFavError");
+    },
+    closeAddToFavError(context) {
+      context.commit("closeAddToFavError");
+    },
+    displayFormValidationError(context) {
+      context.commit("displayFormValidationError")
+    },
+    closeFormValidationError(context) {
+      context.commit("closeFormValidationError");
+    },
+    addNewUser(context, payload) {
+      context.commit("addNewUser", payload)
     }
   },
 };

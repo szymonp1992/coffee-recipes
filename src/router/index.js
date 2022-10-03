@@ -6,6 +6,7 @@ import FavouriteRecipes from "../components/FavouriteRecipes.vue";
 import SubmittedRecipes from "../components/SubmittedRecipes.vue";
 import RecipesList from "../components/RecipesList.vue";
 import AddRecipe from "../components/AddRecipe.vue";
+import Register from "../components/Register.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -36,6 +37,10 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: "/register",
+      component: Register,
+    }
   ],
 });
 

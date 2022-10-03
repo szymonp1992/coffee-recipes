@@ -5,6 +5,11 @@
       <router-link to="/recipes/add-recipe" @click="setSelectedTab('add-recipe')">Add Recipe</router-link>
     </ul>
   </nav>
+  <add-to-fav-error :class="{ errorHidden: !addToFavError}">
+  </add-to-fav-error>
+  <form-validation-error :class="{ errorHidden: !formValidError}">
+
+  </form-validation-error>
   <keep-alive>
   <component :is="activeTab"></component>
   </keep-alive>
@@ -16,9 +21,11 @@
 <script>
 import RecipesList from "./RecipesList.vue";
 import AddRecipe from "./AddRecipe.vue"
+import AddToFavError from "./AddToFavError.vue"
+import FormValidationError from "./FormValidationError.vue"
 
 export default {
-  components: { RecipesList, AddRecipe },
+  components: { RecipesList, AddRecipe, AddToFavError, FormValidationError },
   props: ['loggedOutStatus'],
   data() {
     return {
@@ -30,9 +37,17 @@ export default {
   methods: {
     setSelectedTab(cmp) {
       this.activeTab = cmp;
-    }
+    },
   },
-};
+  computed: {
+  addToFavError(){
+    return this.$store.getters.addToFavError;
+  },
+  formValidError() {
+    return this.$store.getters.formValidationError;
+  }
+}
+}
 </script>
 
 <style scoped>
@@ -65,5 +80,9 @@ nav ul a {
   color: white;
   border-color: red;
   background-color: red;
+}
+.errorHidden {
+  opacity: 0;
+  z-index: -100;
 }
 </style>
