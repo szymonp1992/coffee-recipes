@@ -1,29 +1,23 @@
-# coffee-recipes-project
+# Coffee recipes app
 
-This template should help get you started developing with Vue 3 in Vite.
+## Table of contents
 
-## Recommended IDE Setup
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Live preview](#live-preview)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## General info
 
-## Customize configuration
+The main goal of this app is to enable users to browse through specialty coffee recipes as well as add some new ones and add existing ones to favourites. It was created mainly to get more familiar with Vuex and Vue Router.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Technologies
 
-## Project Setup
+Project is created with:
 
-```sh
-npm install
-```
+- Vue 3.2.37
+- Vue Router 4.1.3
+- Vuex 4.0.2
 
-### Compile and Hot-Reload for Development
+## Live preview
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Live preview is available at https://szymonp1992.github.io/coffee-recipes-app/
