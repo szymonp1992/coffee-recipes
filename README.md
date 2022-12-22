@@ -20,4 +20,4 @@ Project is created with:
 
 ## Live preview
 
-Live preview is available at https://szymonp1992.github.io/coffee-recipes-app/
+Live preview is available at https://szymonp1992.github.io/coffee-recipes/
