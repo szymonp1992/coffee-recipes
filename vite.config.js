@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/coffee-recipes-app/",
+  base: "/coffee-recipes/",
   plugins: [vue()],
   resolve: {
     alias: {
